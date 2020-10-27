@@ -43,7 +43,7 @@ class signInActivity : AppCompatActivity() {
                     Log.d("aa", "signInWithEmail:success")
                     val user = auth.currentUser
                     val intent = Intent(this,BucketListMain::class.java)
-                    //startActivity(intent)
+                    startActivity(intent)
                     //updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.

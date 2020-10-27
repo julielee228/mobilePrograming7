@@ -3,15 +3,25 @@ package com.example.bucketlist
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_bucket_list_main.*
 
 class BucketListMain : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bucket_list_main)
@@ -25,8 +35,15 @@ class BucketListMain : AppCompatActivity() {
 
         val bucketAdapter = listAdapter(this, bucketList)
         bucketListView.adapter = bucketAdapter
-    }
 
+        auth = FirebaseAuth.getInstance()
+
+//        val currentUser = auth.currentUser
+//        val database = Firebase.database
+//        val myRef = database.getReference(currentUser?.uid.toString())
+
+
+    }
 
 
 
