@@ -13,7 +13,7 @@ class LoadingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_loading)
 
         Handler().postDelayed({ //delay를 위한 handler
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, signInActivity::class.java))
             finish()
         }, SPLASH_VIEW_TIME)
     }
