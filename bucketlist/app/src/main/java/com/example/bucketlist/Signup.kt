@@ -29,7 +29,7 @@ class Signup : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        val currentUser = auth.currentUser
+
     }
     fun signup(){
         var email = edit_email.text.toString()
@@ -37,16 +37,19 @@ class Signup : AppCompatActivity() {
         var name = edit_name.text.toString()
         auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
             if(task.isSuccessful){
-                writeNewUser(email,name)
+                val currentUser = auth.currentUser
+                if (currentUser != null) {
+                    writeNewUser(email,name,currentUser.uid)
+                }
                 Toast.makeText(this,"ok",Toast.LENGTH_SHORT).show()
             }else{
 
             }
         }
     }
-    private fun writeNewUser(email: String?, name : String){
+    private fun writeNewUser(email: String?, name : String,uid : String){
         val user = User(email,name)
-        database.child("users").child(name).setValue(user)
+        database.child("users").child(uid).setValue(user)
     }
 
 }
