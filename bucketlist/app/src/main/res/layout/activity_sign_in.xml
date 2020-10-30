@@ -41,7 +41,7 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:hint="Write your Password"
         android:drawableLeft="@drawable/icon_pw"
         android:drawablePadding="7dp"

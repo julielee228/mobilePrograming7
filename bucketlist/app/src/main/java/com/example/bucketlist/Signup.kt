@@ -41,17 +41,27 @@ class Signup : AppCompatActivity() {
         var email = edit_email.text.toString()
         var pw = edit_pw.text.toString()
         var name = edit_name.text.toString()
-        auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
-            if(task.isSuccessful){
-                val currentUser = auth.currentUser
-                if (currentUser != null) {
-                    writeNewUser(email,name,currentUser.uid)
-                }
-                Toast.makeText(this,"ok",Toast.LENGTH_SHORT).show()
-            }else{
+        var pw_confirm = edit_pw_confirm.text.toString()
+        // 비밀번호, 비밀번호 확인 문자열 체크
+        if(pw == pw_confirm) {
+            auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
+                if(task.isSuccessful){
+                    val currentUser = auth.currentUser
+                    if (currentUser != null) {
+                        writeNewUser(email,name,currentUser.uid)
+                    }
+                    Toast.makeText(this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, signInActivity::class.java) //회원가입 성공 시 로그인 페이지로 이동
+                    startActivity(intent)
+                }else{
 
+                }
             }
         }
+        else {
+            Toast.makeText(this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()
+        }
+
     }
     private fun writeNewUser(email: String?, name : String,uid : String){
         val user = User(email,name)
