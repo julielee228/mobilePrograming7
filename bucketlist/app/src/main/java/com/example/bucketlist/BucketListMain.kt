@@ -1,7 +1,6 @@
 package com.example.bucketlist
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,16 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.CheckBox
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_bucket_list_main.*
+
 
 class BucketListMain : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -26,21 +23,40 @@ class BucketListMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bucket_list_main)
 
+
         val bucketList = listOf(
             Bucket("패러글라이딩"),
             Bucket("소풍가기"),
             Bucket("스키장가기"),
             Bucket("노가리가보기")
         )
+        // ㄷㅔ이터 불러오기 45라인 username부분이 키 값
+        val database = FirebaseDatabase.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        val currentUser = auth.currentUser
+        val myRef = currentUser?.uid?.let { database.getReference().child(it) }
+
+        if (myRef != null) {
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    val value = dataSnapshot.child("username").getValue(String::class.java)
+
+                    Log.d("TAG", "Value is: $value")
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException())
+                }
+            })
+        }
 
         val bucketAdapter = listAdapter(this, bucketList)
         bucketListView.adapter = bucketAdapter
 
-        auth = FirebaseAuth.getInstance()
-
-//        val currentUser = auth.currentUser
-//        val database = Firebase.database
-//        val myRef = database.getReference(currentUser?.uid.toString())
 
 
     }
@@ -50,12 +66,12 @@ class BucketListMain : AppCompatActivity() {
 
 }
 
-class Bucket (val name: String) {
+class Bucket(val name: String) {
 
 }
 
 
-class listAdapter (val context : Context, val list : List<Bucket>) : BaseAdapter() {
+class listAdapter(val context: Context, val list: List<Bucket>) : BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.item_list, null)
 
