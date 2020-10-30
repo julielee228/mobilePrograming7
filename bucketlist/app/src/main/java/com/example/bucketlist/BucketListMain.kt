@@ -1,6 +1,7 @@
 package com.example.bucketlist
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -57,6 +58,19 @@ class BucketListMain : AppCompatActivity() {
         val bucketAdapter = listAdapter(this, bucketList)
         bucketListView.adapter = bucketAdapter
 
+
+
+        // 테스트 코드
+        // 하단 메뉴바에서 2번째 메뉴 누르면 로그인 페이지로 이동
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.icList ->{
+                    val intent = Intent(this, signInActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
+        }
 
 
     }
