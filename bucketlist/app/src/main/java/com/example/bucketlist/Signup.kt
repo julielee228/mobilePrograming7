@@ -45,12 +45,8 @@ class Signup : AppCompatActivity() {
         // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
 
 
-
-
-
-
-
         var email = edit_email.text.toString()
+        var phone = edit_phone.text.toString()
         var pw = edit_pw.text.toString()
         var name = edit_name.text.toString()
         var pw_confirm = edit_pw_confirm.text.toString()
@@ -74,7 +70,7 @@ class Signup : AppCompatActivity() {
                 if(task.isSuccessful){
                     val currentUser = auth.currentUser
                     if (currentUser != null) {
-                        writeNewUser(email,name,currentUser.uid)
+                        writeNewUser(email,name,currentUser.uid,phone)
                     }
                     Toast.makeText(this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, signInActivity::class.java) //회원가입 성공 시 로그인 페이지로 이동
@@ -84,8 +80,8 @@ class Signup : AppCompatActivity() {
         }
 
     }
-    private fun writeNewUser(email: String?, name : String,uid : String){
-        val user = User(email,name)
+    private fun writeNewUser(email: String?, name : String,uid : String,phone : String){
+        val user = User(email,name,phone)
         database.child(uid).setValue(user)
     }
 
@@ -95,5 +91,6 @@ class Signup : AppCompatActivity() {
 
 data class User (
     var email : String? = "",
-    var username : String? = ""
+    var username : String? = "",
+    var phone : String? = ""
 )
