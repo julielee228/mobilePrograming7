@@ -23,7 +23,7 @@ class signInActivity : AppCompatActivity() {
         }
 
         signin_btn.setOnClickListener {
-            signin()
+                signin()
         }
     }
 
@@ -36,25 +36,32 @@ class signInActivity : AppCompatActivity() {
         var email = email_content.text.toString()
         var password = pw_content.text.toString()
         val currentUser = auth.currentUser
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d("aa", "signInWithEmail:success")
-                    val user = auth.currentUser
-                    val intent = Intent(this,BucketListMain::class.java)
-                    startActivity(intent)
-                    //updateUI(user)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    //Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
-                    //updateUI(null)
+        if (email.length == 0 || password.length == 0) {
+            Toast.makeText(this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+        }else {
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("aa", "signInWithEmail:success")
+                        val user = auth.currentUser
+                        val intent = Intent(this,BucketListMain::class.java)
+                        startActivity(intent)
+                        //updateUI(user)
+                    }
+                    else {
+                        // If sign in fails, display a message to the user.
+                        //Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+                        //updateUI(null)
+                        // ...
+                    }
+
                     // ...
                 }
 
-                // ...
-            }
+        }
+
     }
 }
