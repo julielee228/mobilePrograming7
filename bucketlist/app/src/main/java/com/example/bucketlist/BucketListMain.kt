@@ -68,6 +68,10 @@ class BucketListMain : AppCompatActivity() {
                     val intent = Intent(this, signInActivity::class.java)
                     startActivity(intent)
                 }
+                R.id.icMenuBar ->{
+                    val intent = Intent(this, myInfo::class.java)
+                    startActivity(intent)
+                }
             }
             true
         }
