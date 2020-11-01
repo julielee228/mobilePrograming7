@@ -32,8 +32,10 @@ class myInfo : AppCompatActivity() {
                     // whenever data at this location is updated.
                     val name = dataSnapshot.child("username").getValue(String::class.java).toString()
                     val email = dataSnapshot.child("email").getValue(String::class.java).toString()
+                    val phone = dataSnapshot.child("phone").getValue(String::class.java).toString()
                     myName.text = name
                     myEmail.text = email
+                    myPhone.text = phone
                 }
 
                 override fun onCancelled(error: DatabaseError) {
