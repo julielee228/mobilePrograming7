@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextThemeWrapper
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -47,6 +50,22 @@ class myInfo : AppCompatActivity() {
         backBtn.setOnClickListener {
             val intent = Intent(this,BucketListMain::class.java)
             startActivity(intent)
+        }
+        logOut.setOnClickListener {
+            val builder = AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog)
+            builder.setTitle("로그아웃 하시겠습니까?")
+            builder.setMessage("확인 버튼 클릭 시 로그아웃 됩니다.")
+
+            builder.setPositiveButton("확인") { _, _ ->
+                FirebaseAuth.getInstance().signOut()
+                val intent2 = Intent(this,signInActivity::class.java)
+                startActivity(intent2)
+                Toast.makeText(this,"로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("취소") { _, _ ->
+                //No action
+            }
+            builder.show()
         }
     }
 }
