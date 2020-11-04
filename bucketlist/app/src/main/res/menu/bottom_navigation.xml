@@ -12,18 +12,9 @@
         android:title=""
         android:enabled="true"
         />
-    <item android:id="@+id/icAdd"
-        android:icon="@drawable/icon_menu_add"
-        android:title=""
-        android:enabled="true"
-        />
-    <item android:id="@+id/icDashBoard"
-        android:icon="@drawable/icon_menu_dashboard"
-        android:title=""
-        android:enabled="true"
-        />
+
     <item android:id="@+id/icMenuBar"
-        android:icon="@drawable/icon_menu_menubar"
+        android:icon="@drawable/icon_menu_info"
         android:title=""
         android:enabled="true"
         />
