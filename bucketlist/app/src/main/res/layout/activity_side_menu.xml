@@ -301,6 +301,8 @@
             app:itemIconTint="#fff"
             app:itemTextColor="#fff"
             android:layout_marginTop="172dp"
+            app:itemIconSize="35dp"
+
             >
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
