@@ -1,12 +1,11 @@
 package com.example.bucketlist
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.ContextThemeWrapper
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -48,8 +47,9 @@ class myInfo : AppCompatActivity() {
             })
         }
         backBtn.setOnClickListener {
-            val intent = Intent(this,BucketListMain::class.java)
-            startActivity(intent)
+//            val intent = Intent(this,BucketListMain::class.java)
+//            startActivity(intent)
+            finish()
         }
         logOut.setOnClickListener {
             val builder = AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog)
