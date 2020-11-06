@@ -45,7 +45,7 @@ class signInActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("aa", "signInWithEmail:success")
                         val user = auth.currentUser
-                        val intent = Intent(this,BucketListMain::class.java)
+                        val intent = Intent(this,MainActivity::class.java)
                         startActivity(intent)
                         //updateUI(user)
                     }

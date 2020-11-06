@@ -19,7 +19,9 @@ import kotlinx.android.synthetic.main.activity_bucket_list_main.*
 
 
 class BucketListMain : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bucket_list_main)
@@ -72,6 +74,7 @@ class BucketListMain : AppCompatActivity() {
                     val intent = Intent(this, myInfo::class.java)
                     startActivity(intent)
                 }
+
             }
             true
         }
