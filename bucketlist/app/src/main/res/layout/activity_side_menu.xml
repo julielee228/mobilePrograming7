@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:minHeight="?android:attr/actionBarSize"
             />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -36,7 +37,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.255"
-                app:srcCompat="@drawable/circle" />
+                app:srcCompat="@drawable/circle"
+                />
 
 <!--            Feb-->
             <ImageView
