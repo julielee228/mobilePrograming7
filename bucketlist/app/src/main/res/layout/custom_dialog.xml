@@ -40,9 +40,10 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"/>
         <TextView
+            android:id="@+id/bucket_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="귀여운 여자친구 만들기"
+            android:text=""
             android:textColor="@color/colorGray"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"/>
@@ -59,7 +60,7 @@
             android:id="@+id/month_detail_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="내 맘에 쏙드는 여자친구를 만들겠어요!"
+            android:text=""
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="#000000"
