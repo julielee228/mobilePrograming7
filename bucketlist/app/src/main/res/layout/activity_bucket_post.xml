@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bucketPost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    tools:context=".BucketPostActivity">
+
+    <ImageView
+        android:id="@+id/Cancel"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        app:srcCompat="@drawable/multiplication" />
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:shadowColor="#1F2021"
+        android:text="1月"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/bucketTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="58dp"
+        android:layout_marginRight="58dp"
+        android:layout_weight="2"
+        android:hint="Title"
+        android:text=""
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="58dp"
+        android:layout_marginRight="58dp"
+        android:layout_weight="5"
+        android:hint="Write down what you want to achieve."
+        android:shadowColor="#000000"
+        android:text=""
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/Save"
+        android:layout_width="358dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:text="SAVE AND EXIT"
+        android:textSize="24sp" />
+
+</LinearLayout>
