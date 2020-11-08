@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.icList ->{
-                    val intent = Intent(this, BucketListMain::class.java)
+                    val intent = Intent(this, BucketListActivity::class.java)
                     startActivity(intent)
                 }
                 R.id.icMenuBar ->{
