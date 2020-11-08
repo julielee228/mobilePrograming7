@@ -1,14 +1,18 @@
 package com.example.bucketlist
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_bucket_list.*
-import kotlinx.android.synthetic.main.activity_bucket_list.bottom_navigation
 
 
 class BucketListActivity : AppCompatActivity() {
@@ -27,92 +31,20 @@ class BucketListActivity : AppCompatActivity() {
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    var title = dataSnapshot.child("bucketlist").child("1월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus1.visibility = View.GONE
-                        title1.visibility = View.VISIBLE
-                        title1.text = title
-                    }
+                    for(i in 1..12) {
+                        var title = dataSnapshot.child("bucketlist").child("${i}월").child("title").getValue(String::class.java).toString()
+                        if (title != "null") {
+                            val idPlus = "plus${i}"
+                            val idTitle = "title${i}"
 
-                    title = dataSnapshot.child("bucketlist").child("2월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus2.visibility = View.GONE
-                        title2.visibility = View.VISIBLE
-                        title2.text = title
+                            val plus: ImageView= findViewById(resources.getIdentifier(idPlus, "id", packageName))
+                            val bucketTitle: TextView = findViewById(resources.getIdentifier(idTitle, "id", packageName))
+                            plus.visibility = View.GONE
+                            bucketTitle.visibility = View.VISIBLE
+                            bucketTitle.text = title
+                        }
                     }
-
-                    title = dataSnapshot.child("bucketlist").child("3월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus3.visibility = View.GONE
-                        title3.visibility = View.VISIBLE
-                        title3.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("4월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus4.visibility = View.GONE
-                        title4.visibility = View.VISIBLE
-                        title4.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("5월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus5.visibility = View.GONE
-                        title5.visibility = View.VISIBLE
-                        title5.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("6월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus6.visibility = View.GONE
-                        title6.visibility = View.VISIBLE
-                        title6.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("7월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus7.visibility = View.GONE
-                        title7.visibility = View.VISIBLE
-                        title7.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("8월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus8.visibility = View.GONE
-                        title8.visibility = View.VISIBLE
-                        title8.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("9월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus9.visibility = View.GONE
-                        title9.visibility = View.VISIBLE
-                        title9.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("10월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus10.visibility = View.GONE
-                        title10.visibility = View.VISIBLE
-                        title10.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("11월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus11.visibility = View.GONE
-                        title11.visibility = View.VISIBLE
-                        title11.text = title
-                    }
-
-                    title = dataSnapshot.child("bucketlist").child("12월").child("title").getValue(String::class.java).toString()
-                    if (title != "null") {
-                        plus12.visibility = View.GONE
-                        title12.visibility = View.VISIBLE
-                        title12.text = title
-                    }
-
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Log.w("TAG", "Failed to read value.", error.toException())
                 }
