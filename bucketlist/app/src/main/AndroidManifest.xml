@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BucketListActivity" />
         <activity android:name=".BucketPostActivity" />
-        <activity android:name=".myInfo"></activity>
+        <activity android:name=".myInfo" />
         <activity android:name=".Signup" />
         <activity android:name=".signInActivity" />
         <activity android:name=".BucketListMain" />
@@ -23,7 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

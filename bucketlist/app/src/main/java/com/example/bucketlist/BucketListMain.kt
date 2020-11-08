@@ -19,7 +19,9 @@ import kotlinx.android.synthetic.main.activity_bucket_list_main.*
 
 
 class BucketListMain : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bucket_list_main)
@@ -58,24 +60,20 @@ class BucketListMain : AppCompatActivity() {
         val bucketAdapter = listAdapter(this, bucketList)
         bucketListView.adapter = bucketAdapter
 
-
-
-        // 테스트 코드
-        // 하단 메뉴바에서 2번째 메뉴 누르면 로그인 페이지로 이동
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.icList ->{
-                    val intent = Intent(this, signInActivity::class.java)
-                    startActivity(intent)
-                }
                 R.id.icMenuBar ->{
                     val intent = Intent(this, myInfo::class.java)
                     startActivity(intent)
                 }
+                R.id.icHome -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+
             }
             true
         }
-
 
     }
 
