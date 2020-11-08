@@ -8,6 +8,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BucketListActivity" />
+        <activity android:name=".BucketPostActivity" />
         <activity android:name=".myInfo" />
         <activity android:name=".Signup" />
         <activity android:name=".signInActivity" />
