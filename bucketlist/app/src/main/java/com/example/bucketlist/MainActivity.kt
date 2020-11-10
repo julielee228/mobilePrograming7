@@ -51,9 +51,14 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "about us", Toast.LENGTH_SHORT).show()
         }
 
-        // 1월의 포도 이미지 눌렀을 때 상세 내용 다이얼로그 창 실행
+        // 포도 이미지 눌렀을 때 월에 맞는 버킷 리스트 내용 보여주기
         Jan.setOnClickListener {
-            showDiaLog(it)
+            val month = "1"
+            showDiaLog(it, month)
+        }
+        Feb.setOnClickListener {
+            val month = "2"
+            showDiaLog(it, month)
         }
 
 
@@ -75,14 +80,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showDiaLog(view: View) {
+    fun showDiaLog(view: View, month: String) {
         val currentUser = auth.currentUser
         val myRef = currentUser?.uid?.let { database.getReference().child(it) }
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val title = dataSnapshot.child("bucketlist").child("1월").child("title").getValue(String::class.java).toString()
-                    val content = dataSnapshot.child("bucketlist").child("1월").child("content").getValue(String::class.java).toString()
+                    val title = dataSnapshot.child("bucketlist").child("${month}월").child("title").getValue(String::class.java).toString()
+                    val content = dataSnapshot.child("bucketlist").child("${month}월").child("content").getValue(String::class.java).toString()
 
                     myDialog.bucket_title.text = title
                     myDialog.month_detail_content.text = content
