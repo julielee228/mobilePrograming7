@@ -53,17 +53,44 @@ class MainActivity : AppCompatActivity() {
 
         // 포도 이미지 눌렀을 때 월에 맞는 버킷 리스트 내용 보여주기
         Jan.setOnClickListener {
-            val month = "1"
-            showDiaLog(it, month)
+            showDiaLog(it, "1")
         }
         Feb.setOnClickListener {
-            val month = "2"
-            showDiaLog(it, month)
+            showDiaLog(it, "2")
+        }
+        Mar.setOnClickListener {
+            showDiaLog(it, "3")
+        }
+        Apr.setOnClickListener {
+            showDiaLog(it, "4")
+        }
+        May.setOnClickListener {
+            showDiaLog(it, "5")
+        }
+        Jun.setOnClickListener {
+            showDiaLog(it, "6")
+        }
+        Jul.setOnClickListener {
+            showDiaLog(it, "7")
+        }
+        Aug.setOnClickListener {
+            showDiaLog(it, "8")
+        }
+        Sep.setOnClickListener {
+            showDiaLog(it, "9")
+        }
+        Oct.setOnClickListener {
+            showDiaLog(it, "10")
+        }
+        Nov.setOnClickListener {
+            showDiaLog(it, "11")
+        }
+        Dec.setOnClickListener {
+            showDiaLog(it, "12")
         }
 
 
-        // 테스트 코드
-        // 하단 메뉴바에서 2번째 메뉴 누르면 로그인 페이지로 이동
+        //하단 메뉴 바 아이콘의 id에 따라서 아이콘 클릭 시 액티비티 전환
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.icList -> {
@@ -86,11 +113,16 @@ class MainActivity : AppCompatActivity() {
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    val title = dataSnapshot.child("bucketlist").child("${month}월").child("title").getValue(String::class.java).toString()
-                    val content = dataSnapshot.child("bucketlist").child("${month}월").child("content").getValue(String::class.java).toString()
+                    // 달에 해당하는 버킷 리스트 제목과 상세 내용을 가져온다.
+                    var title = dataSnapshot.child("bucketlist").child("${month}월").child("title").getValue(String::class.java).toString()
+                    var content = dataSnapshot.child("bucketlist").child("${month}월").child("content").getValue(String::class.java).toString()
 
+
+                    // 화면에 나타낼 다이얼로그 텍스트에 값을 저장한다.
+                    myDialog.select_month.text = month + "월의 버킷 리스트"
                     myDialog.bucket_title.text = title
                     myDialog.month_detail_content.text = content
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -100,11 +132,10 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
+        myDialog.setContentView(R.layout.custom_dialog) // 실제로 다이얼로그를 화면에 띄어줌
+        var btnClose = myDialog.findViewById<Button>(R.id.close_dialog) // 닫기 버튼 변수
 
-        myDialog.setContentView(R.layout.custom_dialog) // 다이얼로그 이미지 설정
-        var btnClose = myDialog.findViewById<Button>(R.id.close_dialog) // 닫기 버튼 눌렀을 때
-
-
+        // 닫기 버튼을 눌렀을 때
         btnClose.setOnClickListener {
             myDialog.dismiss()
         }
