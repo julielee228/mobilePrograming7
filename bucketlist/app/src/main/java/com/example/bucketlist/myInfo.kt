@@ -47,15 +47,16 @@ class myInfo : AppCompatActivity() {
             })
         }
         backBtn.setOnClickListener {
-//            val intent = Intent(this,BucketListMain::class.java)
-//            startActivity(intent)
             finish()
         }
+
+        // 사용자 로그아웃
         logOut.setOnClickListener {
             val builder = AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog)
             builder.setTitle("로그아웃 하시겠습니까?")
             builder.setMessage("확인 버튼 클릭 시 로그아웃 됩니다.")
 
+            //확인 버튼 클릭 시 파이어베이스 함수를 이용하여 로그아웃 후 로그인 페이지로 이동
             builder.setPositiveButton("확인") { _, _ ->
                 FirebaseAuth.getInstance().signOut()
                 val intent2 = Intent(this,signInActivity::class.java)
