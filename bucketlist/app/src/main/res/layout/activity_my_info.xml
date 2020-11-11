@@ -32,16 +32,6 @@
             android:text="내 정보" />
     </LinearLayout>
 
-    <ImageView
-        android:layout_marginTop="20dp"
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:background="@drawable/icon_user"
-
-        app:srcCompat="@drawable/my_profile" />
-
     <TextView
         android:layout_marginTop="20dp"
         android:id="@+id/myName"
@@ -50,37 +40,35 @@
         android:textStyle="bold"
         android:gravity="center"
         android:textSize="20dp"
-        android:text="" />
+        android:text="차영호" />
 
     <LinearLayout
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_marginTop="7dp"
+            android:id="@+id/myEmail"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="email : "
-
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp">
+            android:text="ckdudgh@naver.com"
+            android:textSize="16dp"
+            android:gravity="center">
         </TextView>
         <TextView
-            android:id="@+id/myEmail"
+            android:id="@+id/myPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp">
+            android:text="010"
+            android:textSize="20dp">
         </TextView>
 
     </LinearLayout>
     <View
-        android:layout_marginLeft="20dp"
+
         android:layout_marginTop="10dp"
-        android:layout_width="370dp"
-        android:layout_height="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="1mm"
         android:layout_centerInParent="true"
         android:layout_marginBottom="10dp"
         android:background="#F1F1F1" />
@@ -94,14 +82,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="전화번호 : "
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp">
-        </TextView>
-        <TextView
-            android:id="@+id/myPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
             android:textSize="20dp"
             android:layout_marginLeft="20dp">
         </TextView>

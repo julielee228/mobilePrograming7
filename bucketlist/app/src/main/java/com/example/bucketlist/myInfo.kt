@@ -1,9 +1,11 @@
 package com.example.bucketlist
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -12,10 +14,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_my_info.*
+import java.time.LocalDate
 
 class myInfo : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_info)
@@ -26,6 +30,13 @@ class myInfo : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         val myRef = currentUser?.uid?.let { database.getReference().child(it) }
+
+        var now = LocalDate.now().toString()
+        var month = IntRange(5,6)
+        Log.d("aa",now.slice(month))
+
+
+
 
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
@@ -70,3 +81,4 @@ class myInfo : AppCompatActivity() {
         }
     }
 }
+
