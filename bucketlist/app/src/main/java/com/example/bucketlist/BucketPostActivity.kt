@@ -27,7 +27,7 @@ class BucketPostActivity : AppCompatActivity() {
 
         if (intent.hasExtra("month"))
         {
-            month.setText(intent.getStringExtra("month") + '月')
+            month.setText(intent.getStringExtra("month") + "月")
         }
 
         Cancel.setOnClickListener {
@@ -54,12 +54,5 @@ class BucketPostActivity : AppCompatActivity() {
 
             startActivity(nextIntent)
         }
-
-
-
-
-
-
-
     }
 }

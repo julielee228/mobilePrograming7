@@ -2,9 +2,11 @@ package com.example.bucketlist
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Layout
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -35,12 +37,14 @@ class BucketListActivity : AppCompatActivity() {
                         var title = dataSnapshot.child("bucketlist").child("${i}월").child("title").getValue(String::class.java).toString()
                         if (title != "null") {
                             val idPlus = "plus${i}"
-                            val idTitle = "title${i}"
+                            val idBucket = "bucket${i}"
+                            val idBucketTitle = "title${i}"
 
                             val plus: ImageView= findViewById(resources.getIdentifier(idPlus, "id", packageName))
-                            val bucketTitle: TextView = findViewById(resources.getIdentifier(idTitle, "id", packageName))
+                            val bucket: RelativeLayout = findViewById(resources.getIdentifier(idBucket, "id", packageName))
+                            val bucketTitle: TextView = findViewById(resources.getIdentifier(idBucketTitle, "id", packageName))
                             plus.visibility = View.GONE
-                            bucketTitle.visibility = View.VISIBLE
+                            bucket.visibility = View.VISIBLE
                             bucketTitle.text = title
                         }
                     }

@@ -54,16 +54,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title1"
+        <RelativeLayout
+            android:id="@+id/bucket1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox1"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus1"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -91,16 +106,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title2"
+        <RelativeLayout
+            android:id="@+id/bucket2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox2"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus2"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -128,16 +158,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title3"
+        <RelativeLayout
+            android:id="@+id/bucket3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox3"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus3"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -165,16 +210,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title4"
+        <RelativeLayout
+            android:id="@+id/bucket4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox4"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus4"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -202,16 +262,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title5"
+        <RelativeLayout
+            android:id="@+id/bucket5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox5"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus5"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -239,15 +314,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title6"
+        <RelativeLayout
+            android:id="@+id/bucket6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox6"
-            android:gravity="center"
-            android:text="title"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus6"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
             android:visibility="gone" />
 
     </RelativeLayout>
@@ -276,16 +367,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title7"
+        <RelativeLayout
+            android:id="@+id/bucket7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox7"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus7"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -313,16 +419,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title8"
+        <RelativeLayout
+            android:id="@+id/bucket8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox8"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus8"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -350,16 +471,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title9"
+        <RelativeLayout
+            android:id="@+id/bucket9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox9"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus9"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -387,16 +523,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title10"
+        <RelativeLayout
+            android:id="@+id/bucket10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox10"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus10"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -424,16 +575,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title11"
+        <RelativeLayout
+            android:id="@+id/bucket11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox11"
-            android:gravity="center"
-            android:text="title"
-            android:visibility="gone" />
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus11"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -461,15 +627,31 @@
             android:visibility="visible"
             app:srcCompat="@drawable/plus" />
 
-        <TextView
-            android:id="@+id/title12"
+        <RelativeLayout
+            android:id="@+id/bucket12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="24dp"
             android:layout_toRightOf="@+id/checkBox12"
-            android:gravity="center"
-            android:text="title"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/title12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="title"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/minus12"
+                android:layout_width="24dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:visibility="visible"
+                app:srcCompat="@drawable/minus" />
+        </RelativeLayout>
             android:visibility="gone" />
 
     </RelativeLayout>
