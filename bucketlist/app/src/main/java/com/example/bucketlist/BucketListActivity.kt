@@ -1,5 +1,6 @@
 package com.example.bucketlist
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.Layout
@@ -8,6 +9,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -82,6 +85,35 @@ class BucketListActivity : AppCompatActivity() {
             startActivity(nextIntent)}
         plus12.setOnClickListener { nextIntent.putExtra("month", "12")
             startActivity(nextIntent)}
+
+        minus1.setOnClickListener {
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("버킷을 삭제하시겠습니까?")
+            builder.setMessage("확인 버튼 클릭 시 버킷이 삭제 됩니다.")
+
+            builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
+                if (myRef != null) {
+                    myRef.addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(dataSnapshot: DataSnapshot) {
+                            myRef.child("bucketlist").child("1월").removeValue()
+                            //dataSnapshot.child("bucketlist").child("1월").setValue(null);
+                            plus1.visibility = View.VISIBLE
+                            bucket1.visibility = View.GONE
+                            Toast.makeText(this@BucketListActivity, "삭제 되었습니다.", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Log.w("TAG", "Failed to read value.", error.toException())
+                        }
+
+                    })
+                }
+            }
+            builder.setNeutralButton("취소", null)
+            builder.show()
+        }
 
         // 네비게이션 바
         bottom_navigation.setOnNavigationItemSelectedListener {
