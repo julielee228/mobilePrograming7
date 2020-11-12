@@ -85,7 +85,6 @@
             android:layout_height="wrap_content"
             android:text="11월"
             android:textSize="20dp"
-            android:layout_marginLeft="20dp"
             android:gravity="center">
         </TextView>
         <View
