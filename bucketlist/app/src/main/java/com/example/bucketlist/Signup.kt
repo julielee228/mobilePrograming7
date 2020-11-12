@@ -9,7 +9,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_signup.*
-import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 
@@ -51,19 +50,26 @@ class Signup : AppCompatActivity() {
         var name = edit_name.text.toString()
         var pw_confirm = edit_pw_confirm.text.toString()
 
-        //숫자 문자 특수문자 모두 포함하여야
+        //비밀번호는 숫자, 문자, 특수문자 모두 포함해야함
         val val_validation = "([0-9].*[!,@,#,^,&,*,(,)])|([!,@,#,^,&,*,(,)].*[0-9])";
+        val val_alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])"
 
         val pattern_validation = Pattern.compile(val_validation)
-        var matcher_vali = pattern_validation.matcher(pw);
+        val pattern_alpha = Pattern.compile(val_alpha
+        )
+        val matcher_vali = pattern_validation.matcher(pw)
+        val matcher_alpha = pattern_alpha.matcher(pw)
 
 
-        // 비밀번호, 비밀번호 확인 문자열 체크
-        if(pw != pw_confirm) {
-            Toast.makeText(this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()
+        // 입력하지 않은 회원 정보 확인
+        if(pw=="" || pw_confirm=="" || email=="" || phone=="" || name=="") {
+            Toast.makeText(this,"회원정보를 모두 입력해주세요.",Toast.LENGTH_SHORT).show()
         }
-        else if(!matcher_vali.find()) {
-            Toast.makeText(this, "숫자와 특수문자가 포함되어야 합니다.",Toast.LENGTH_SHORT).show()
+        // 비밀번호, 비밀번호 확인 문자열 일치 확인
+        else if(pw != pw_confirm) {Toast.makeText(this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()}
+        // 비밀번호 유효성 확인
+        else if(!matcher_vali.find() || !matcher_alpha.find()) {
+            Toast.makeText(this, "비밀번호는 숫자,문자,특수문자로 구성되어야 합니다.",Toast.LENGTH_SHORT).show()
         }
         else{
             auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
