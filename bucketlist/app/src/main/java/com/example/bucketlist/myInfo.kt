@@ -33,7 +33,9 @@ class myInfo : AppCompatActivity() {
 
         var now = LocalDate.now().toString()
         var month = IntRange(5,6)
-        Log.d("aa",now.slice(month))
+        now = now.slice(month)
+        //Log.d("aa",now.slice(month))
+        today.text = (now + "월").toString()
 
 
 
@@ -43,12 +45,16 @@ class myInfo : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
+                    var title = dataSnapshot.child("bucketlist").child((now + "월").toString()).child("title").getValue(String::class.java).toString()
+                    var content = dataSnapshot.child("bucketlist").child((now + "월").toString()).child("content").getValue(String::class.java).toString()
                     val name = dataSnapshot.child("username").getValue(String::class.java).toString()
                     val email = dataSnapshot.child("email").getValue(String::class.java).toString()
                     val phone = dataSnapshot.child("phone").getValue(String::class.java).toString()
                     myName.text = name
                     myEmail.text = email
                     myPhone.text = phone
+                    month_do_title.text = title
+                    month_do_content.text = content
                 }
 
                 override fun onCancelled(error: DatabaseError) {
