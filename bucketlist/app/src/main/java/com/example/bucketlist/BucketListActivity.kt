@@ -13,10 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_bucket_list.*
 
 
@@ -86,34 +83,18 @@ class BucketListActivity : AppCompatActivity() {
         plus12.setOnClickListener { nextIntent.putExtra("month", "12")
             startActivity(nextIntent)}
 
-        minus1.setOnClickListener {
-
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("버킷을 삭제하시겠습니까?")
-            builder.setMessage("확인 버튼 클릭 시 버킷이 삭제 됩니다.")
-
-            builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
-                if (myRef != null) {
-                    myRef.addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(dataSnapshot: DataSnapshot) {
-                            myRef.child("bucketlist").child("1월").removeValue()
-                            //dataSnapshot.child("bucketlist").child("1월").setValue(null);
-                            plus1.visibility = View.VISIBLE
-                            bucket1.visibility = View.GONE
-                            Toast.makeText(this@BucketListActivity, "삭제 되었습니다.", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-
-                        override fun onCancelled(error: DatabaseError) {
-                            Log.w("TAG", "Failed to read value.", error.toException())
-                        }
-
-                    })
-                }
-            }
-            builder.setNeutralButton("취소", null)
-            builder.show()
-        }
+        minus1.setOnClickListener { deleteBucket(myRef, "1") }
+        minus2.setOnClickListener { deleteBucket(myRef, "2") }
+        minus3.setOnClickListener { deleteBucket(myRef, "3") }
+        minus4.setOnClickListener { deleteBucket(myRef, "4") }
+        minus5.setOnClickListener { deleteBucket(myRef, "5") }
+        minus6.setOnClickListener { deleteBucket(myRef, "6") }
+        minus7.setOnClickListener { deleteBucket(myRef, "7") }
+        minus8.setOnClickListener { deleteBucket(myRef, "8") }
+        minus9.setOnClickListener { deleteBucket(myRef, "9") }
+        minus10.setOnClickListener { deleteBucket(myRef, "10") }
+        minus11.setOnClickListener { deleteBucket(myRef, "11") }
+        minus12.setOnClickListener { deleteBucket(myRef, "12") }
 
         // 네비게이션 바
         bottom_navigation.setOnNavigationItemSelectedListener {
@@ -129,5 +110,40 @@ class BucketListActivity : AppCompatActivity() {
             }
             true
         }
+    }
+
+    private fun deleteBucket(myRef: DatabaseReference?, month: String) {
+
+        val idBucket = "bucket${month}"
+        val idPlus = "plus${month}"
+
+        val plus: ImageView= findViewById(resources.getIdentifier(idPlus, "id", packageName))
+        val bucket: RelativeLayout = findViewById(resources.getIdentifier(idBucket, "id", packageName))
+
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("버킷을 삭제하시겠습니까?")
+        builder.setMessage("확인 버튼 클릭 시 버킷이 삭제 됩니다.")
+
+        builder.setPositiveButton("확인") { _, _ ->
+            if (myRef != null) {
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        myRef.child("bucketlist").child("${month}월").removeValue()
+                        plus.visibility = View.VISIBLE
+                        bucket.visibility = View.GONE
+                        Toast.makeText(this@BucketListActivity, "삭제 되었습니다.", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.w("TAG", "Failed to read value.", error.toException())
+                    }
+
+                })
+            }
+        }
+        builder.setNeutralButton("취소", null)
+            builder.show()
     }
 }
