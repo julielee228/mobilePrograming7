@@ -39,7 +39,8 @@
                 android:drawableLeft="@drawable/icon_user"
                 android:drawablePadding="7dp"
                 android:ems="10"
-                android:inputType="textPersonName"/>
+                android:inputType="textPersonName"
+                />
 
 
             <EditText
@@ -52,7 +53,7 @@
                 android:drawableLeft="@drawable/icon_email"
                 android:drawablePadding="7dp"
                 android:ems="10"
-                android:inputType="textPersonName"/>
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/edit_phone"
@@ -136,7 +137,8 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:srcCompat="@drawable/facebook"
-                android:layout_marginRight="35dp"/>
+                android:layout_marginRight="35dp"
+                />
 
             <ImageView
                 android:id="@+id/icon_signUp_google"
