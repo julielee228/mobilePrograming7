@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.text.Layout
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -36,16 +33,19 @@ class BucketListActivity : AppCompatActivity() {
                     for(i in 1..12) {
                         var title = dataSnapshot.child("bucketlist").child("${i}월").child("title").getValue(String::class.java).toString()
                         if (title != "null") {
-                            val idPlus = "plus${i}"
-                            val idBucket = "bucket${i}"
-                            val idBucketTitle = "title${i}"
+                            val plus: ImageView= findViewById(resources.getIdentifier("plus${i}", "id", packageName))
+                            val bucket: RelativeLayout = findViewById(resources.getIdentifier("bucket${i}", "id", packageName))
+                            val bucketTitle: TextView = findViewById(resources.getIdentifier("title${i}", "id", packageName))
+                            val checkbox: CheckBox = findViewById(resources.getIdentifier("checkBox${i}", "id", packageName))
 
-                            val plus: ImageView= findViewById(resources.getIdentifier(idPlus, "id", packageName))
-                            val bucket: RelativeLayout = findViewById(resources.getIdentifier(idBucket, "id", packageName))
-                            val bucketTitle: TextView = findViewById(resources.getIdentifier(idBucketTitle, "id", packageName))
+                            val check = dataSnapshot.child("bucketlist").child("${i}월").child("achievement").getValue().toString()
+
                             plus.visibility = View.GONE
                             bucket.visibility = View.VISIBLE
                             bucketTitle.text = title
+                            if (check != "null") {
+                                checkbox.isChecked = check.toBoolean()
+                            }
                         }
                     }
                 }
@@ -96,6 +96,19 @@ class BucketListActivity : AppCompatActivity() {
         minus11.setOnClickListener { deleteBucket(myRef, "11") }
         minus12.setOnClickListener { deleteBucket(myRef, "12") }
 
+        checkBox1.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "1", isChecked) }
+        checkBox2.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "2", isChecked) }
+        checkBox3.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "3", isChecked) }
+        checkBox4.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "4", isChecked) }
+        checkBox5.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "5", isChecked) }
+        checkBox6.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "6", isChecked) }
+        checkBox7.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "7", isChecked) }
+        checkBox8.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "8", isChecked) }
+        checkBox9.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "9", isChecked) }
+        checkBox10.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "10", isChecked) }
+        checkBox11.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "11", isChecked) }
+        checkBox12.setOnCheckedChangeListener { _, isChecked -> checkBucket(myRef, "12", isChecked) }
+
         // 네비게이션 바
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
@@ -112,14 +125,28 @@ class BucketListActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkBucket(myRef: DatabaseReference?, month:String, isChecked:Boolean) {
+        val checkbox: CheckBox =
+            findViewById(resources.getIdentifier("checkBox${month}", "id", packageName))
+
+        if (myRef != null) {
+            if (isChecked) {
+                myRef.child("bucketlist").child(month+"월").child("achievement").setValue(true)
+                checkbox.isChecked = true
+                checkbox.jumpDrawablesToCurrentState()
+            } else {
+                myRef.child("bucketlist").child(month+"월").child("achievement").setValue(false)
+                checkbox.isChecked = false
+                checkbox.jumpDrawablesToCurrentState()
+            }
+        }
+    }
+
     private fun deleteBucket(myRef: DatabaseReference?, month: String) {
 
-        val idBucket = "bucket${month}"
-        val idPlus = "plus${month}"
-
-        val plus: ImageView= findViewById(resources.getIdentifier(idPlus, "id", packageName))
-        val bucket: RelativeLayout = findViewById(resources.getIdentifier(idBucket, "id", packageName))
-
+        val plus: ImageView= findViewById(resources.getIdentifier("plus${month}", "id", packageName))
+        val bucket: RelativeLayout = findViewById(resources.getIdentifier("bucket${month}", "id", packageName))
+        val checkbox: CheckBox = findViewById(resources.getIdentifier("checkBox${month}", "id", packageName))
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("버킷을 삭제하시겠습니까?")
@@ -129,9 +156,11 @@ class BucketListActivity : AppCompatActivity() {
             if (myRef != null) {
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        Log.d("hh","hhhhh")
                         myRef.child("bucketlist").child("${month}월").removeValue()
                         plus.visibility = View.VISIBLE
                         bucket.visibility = View.GONE
+                        checkbox.isChecked = false
                         Toast.makeText(this@BucketListActivity, "삭제 되었습니다.", Toast.LENGTH_SHORT)
                             .show()
                     }
@@ -139,7 +168,6 @@ class BucketListActivity : AppCompatActivity() {
                     override fun onCancelled(error: DatabaseError) {
                         Log.w("TAG", "Failed to read value.", error.toException())
                     }
-
                 })
             }
         }
@@ -147,3 +175,4 @@ class BucketListActivity : AppCompatActivity() {
             builder.show()
     }
 }
+

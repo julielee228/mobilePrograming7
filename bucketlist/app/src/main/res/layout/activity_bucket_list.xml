@@ -42,6 +42,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="1月" />
 
@@ -94,6 +95,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="2月" />
 
@@ -146,6 +148,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="3月" />
 
@@ -198,6 +201,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="4月" />
 
@@ -250,6 +254,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="5月" />
 
@@ -302,6 +307,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="6月" />
 
@@ -355,6 +361,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="7月" />
 
@@ -407,6 +414,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="8月" />
 
@@ -459,6 +467,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="9月" />
 
@@ -511,6 +520,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="10月" />
 
@@ -563,6 +573,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="11月" />
 
@@ -615,6 +626,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:checked="false"
             android:gravity="center"
             android:text="12月" />
 
