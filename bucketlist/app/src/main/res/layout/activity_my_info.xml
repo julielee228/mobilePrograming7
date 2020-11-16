@@ -40,7 +40,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:textSize="24dp"
-        android:text="차영호" />
+        android:text="" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
             android:id="@+id/myEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ckdudgh@naver.com"
+            android:text=""
             android:textSize="16dp"
             android:gravity="center">
         </TextView>
@@ -60,7 +60,7 @@
             android:id="@+id/myPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="010"
+            android:text=""
             android:gravity="center"
             android:textSize="16dp">
         </TextView>
@@ -85,7 +85,6 @@
             android:layout_height="wrap_content"
             android:text="11월"
             android:textSize="20dp"
-            android:layout_marginLeft="20dp"
             android:gravity="center">
         </TextView>
         <View
@@ -98,7 +97,7 @@
             android:background="#F1F1F1" />
         <TextView
             android:layout_marginTop="25dp"
-            android:text="여자친구 만들기"
+            android:text=""
             android:id="@+id/month_do_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,7 +107,7 @@
             />
         <TextView
             android:layout_marginTop="15dp"
-            android:text="놀러 다니"
+            android:text=""
             android:id="@+id/month_do_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
