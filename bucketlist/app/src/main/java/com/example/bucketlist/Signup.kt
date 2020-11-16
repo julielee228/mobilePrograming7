@@ -39,9 +39,6 @@ class Signup : AppCompatActivity() {
 
     }
     fun signup(){
-        // 비밀번호 유효성 검사식1 : 숫자, 특수문자가 포함되어야 한다.
-        val val_symbol = "([0-9].*[!,@,#,^,&,*,(,)])|([!,@,#,^,&,*,(,)].*[0-9])";
-        // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
 
 
         var email = edit_email.text.toString()
@@ -50,16 +47,12 @@ class Signup : AppCompatActivity() {
         var name = edit_name.text.toString()
         var pw_confirm = edit_pw_confirm.text.toString()
 
-        //비밀번호는 숫자, 문자, 특수문자 모두 포함해야함
-        val val_validation = "([0-9].*[!,@,#,^,&,*,(,)])|([!,@,#,^,&,*,(,)].*[0-9])";
-        val val_alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])"
+        //비밀번호는 숫자, 문자, 특수문자를 포함하여 8~15글자 사이로 지정
+        val val_validation = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&]).{8,15}.\$"
 
         val pattern_validation = Pattern.compile(val_validation)
-        val pattern_alpha = Pattern.compile(val_alpha
-        )
-        val matcher_vali = pattern_validation.matcher(pw)
-        val matcher_alpha = pattern_alpha.matcher(pw)
 
+        val matcher_vali = pattern_validation.matcher(pw)
 
         // 입력하지 않은 회원 정보 확인
         if(pw=="" || pw_confirm=="" || email=="" || phone=="" || name=="") {
@@ -68,8 +61,8 @@ class Signup : AppCompatActivity() {
         // 비밀번호, 비밀번호 확인 문자열 일치 확인
         else if(pw != pw_confirm) {Toast.makeText(this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()}
         // 비밀번호 유효성 확인
-        else if(!matcher_vali.find() || !matcher_alpha.find()) {
-            Toast.makeText(this, "비밀번호는 숫자,문자,특수문자로 구성되어야 합니다.",Toast.LENGTH_SHORT).show()
+        else if(!matcher_vali.find()) {
+            Toast.makeText(this, "비밀번호는 숫자,문자,특수문자를 포함하여 8~15글자로 입력해주세요.",Toast.LENGTH_SHORT).show()
         }
         else{
             auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
