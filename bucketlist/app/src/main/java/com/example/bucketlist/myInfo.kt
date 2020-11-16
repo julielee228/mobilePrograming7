@@ -24,6 +24,11 @@ class myInfo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_info)
 
+        modify_info.setOnClickListener {
+            val intent2 = Intent(this,ModifyInfo::class.java)
+            startActivity(intent2)
+        }
+
         // ㄷㅔ이터 불러오기 45라인 username부분이 키 값
         val database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -36,7 +41,6 @@ class myInfo : AppCompatActivity() {
         now = now.slice(month)
         //Log.d("aa",now.slice(month))
         today.text = (now + "월").toString()
-
 
 
 

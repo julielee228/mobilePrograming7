@@ -8,12 +8,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ModifyInfo"></activity>
         <activity android:name=".BucketListActivity" />
         <activity android:name=".BucketPostActivity" />
         <activity android:name=".myInfo">
 
         </activity>
-
         <activity android:name=".Signup" />
         <activity android:name=".signInActivity" />
         <activity android:name=".BucketListMain" />
@@ -27,9 +27,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
