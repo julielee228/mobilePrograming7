@@ -26,7 +26,7 @@
 
 <!--            Jan-->
             <ImageView
-                android:id="@+id/Jan"
+                android:id="@+id/mon1"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -37,12 +37,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.255"
-                app:srcCompat="@drawable/circle"
+                app:srcCompat="@drawable/non_complete"
                 />
 
 <!--            Feb-->
             <ImageView
-                android:id="@+id/Feb"
+                android:id="@+id/mon2"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -57,7 +57,7 @@
 
 <!--            3월-->
             <ImageView
-                android:id="@+id/Mar"
+                android:id="@+id/mon3"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -72,7 +72,7 @@
 
 <!--            4월-->
             <ImageView
-                android:id="@+id/Apr"
+                android:id="@+id/mon4"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -89,7 +89,7 @@
 
 <!--            5월-->
             <ImageView
-                android:id="@+id/May"
+                android:id="@+id/mon5"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -105,7 +105,7 @@
 
 <!--            6월-->
             <ImageView
-                android:id="@+id/Jun"
+                android:id="@+id/mon6"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -120,7 +120,7 @@
 
 <!--                7월-->
             <ImageView
-                android:id="@+id/Jul"
+                android:id="@+id/mon7"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -135,7 +135,7 @@
 
 <!--            8월-->
             <ImageView
-                android:id="@+id/Aug"
+                android:id="@+id/mon8"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -149,7 +149,7 @@
 
 <!--                9월-->
             <ImageView
-                android:id="@+id/Sep"
+                android:id="@+id/mon9"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -164,7 +164,7 @@
 
 <!--            10월-->
             <ImageView
-                android:id="@+id/Oct"
+                android:id="@+id/mon10"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -179,7 +179,7 @@
 
 <!--            11월-->
             <ImageView
-                android:id="@+id/Nov"
+                android:id="@+id/mon11"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"
@@ -194,7 +194,7 @@
 
 <!--            12월-->
             <ImageView
-                android:id="@+id/Dec"
+                android:id="@+id/mon12"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_gravity="center"

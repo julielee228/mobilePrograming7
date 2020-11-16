@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -26,9 +27,40 @@ class MainActivity : AppCompatActivity() {
     val database = FirebaseDatabase.getInstance()
     val auth = FirebaseAuth.getInstance()
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_side_menu)
+
+
+        val currentUser = auth.currentUser
+        val myRef = currentUser?.uid?.let { database.getReference().child(it) }
+
+        // 사용자의 월별 버킷 리스트 달성 여부에 따른 포도 색깔 설정
+        if (myRef != null) {
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                    val hasKey = dataSnapshot.child("bucketlist").child("2월").hasChild("title")
+//                    Log.d("TAG", hasKey.toString())
+                    for(i in 1..12) { // 1월 ~ 12월
+                        val isComplete = dataSnapshot.child("bucketlist").child("${i}월").child("achievement").value.toString()
+                        val grape: ImageView= findViewById(resources.getIdentifier("mon${i}", "id", packageName))
+                        if(isComplete == "true") {
+                            grape.setImageResource(R.drawable.circle)
+                        }
+                        else {
+                            grape.setImageResource(R.drawable.non_complete)
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException())
+                }
+            })
+        }
 
 
 
@@ -52,40 +84,40 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 포도 이미지 눌렀을 때 월에 맞는 버킷 리스트 내용 보여주기
-        Jan.setOnClickListener {
+        mon1.setOnClickListener {
             showDiaLog(it, "1")
         }
-        Feb.setOnClickListener {
+        mon2.setOnClickListener {
             showDiaLog(it, "2")
         }
-        Mar.setOnClickListener {
+        mon3.setOnClickListener {
             showDiaLog(it, "3")
         }
-        Apr.setOnClickListener {
+        mon4.setOnClickListener {
             showDiaLog(it, "4")
         }
-        May.setOnClickListener {
+        mon5.setOnClickListener {
             showDiaLog(it, "5")
         }
-        Jun.setOnClickListener {
+        mon6.setOnClickListener {
             showDiaLog(it, "6")
         }
-        Jul.setOnClickListener {
+        mon7.setOnClickListener {
             showDiaLog(it, "7")
         }
-        Aug.setOnClickListener {
+        mon8.setOnClickListener {
             showDiaLog(it, "8")
         }
-        Sep.setOnClickListener {
+        mon9.setOnClickListener {
             showDiaLog(it, "9")
         }
-        Oct.setOnClickListener {
+        mon10.setOnClickListener {
             showDiaLog(it, "10")
         }
-        Nov.setOnClickListener {
+        mon11.setOnClickListener {
             showDiaLog(it, "11")
         }
-        Dec.setOnClickListener {
+        mon12.setOnClickListener {
             showDiaLog(it, "12")
         }
 
