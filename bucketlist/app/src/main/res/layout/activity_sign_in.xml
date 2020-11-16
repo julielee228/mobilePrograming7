@@ -91,17 +91,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
+
         <ImageView
-        android:id="@+id/icon_signIn_facebook"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/facebook"
-            android:layout_marginRight="35dp"/>
+            android:id="@+id/icon_signIn_facebook"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="35dp"
+            app:srcCompat="@drawable/facebook" />
 
         <ImageView
             android:id="@+id/icon_signIn_google"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/google" />
 
     </LinearLayout>
