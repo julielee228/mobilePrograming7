@@ -37,17 +37,10 @@ class BucketPostActivity : AppCompatActivity() {
 
         Save.setOnClickListener {
 
-            database.child("GWq5opuMfDQxjHnpQ4qwKQErQP73").child("bucketlist").child("1월").child("title").setValue(bucketTitle.text.toString())
-
-            database.child("GWq5opuMfDQxjHnpQ4qwKQErQP73").child("bucketlist").child(intent.getStringExtra("month")+"월").child("title").setValue(bucketTitle.text.toString())
-            database.child("GWq5opuMfDQxjHnpQ4qwKQErQP73").child("bucketlist").child(intent.getStringExtra("month")+"월").child("content").setValue(content.text.toString())
-
-
             if (currentUser != null) {
-                //database.child(currentUser.uid).child("bucketlist").child("1월").child("title").setValue("content")
-
                 database.child(currentUser.uid).child("bucketlist").child(intent.getStringExtra("month")+"월").child("title").setValue(bucketTitle.text.toString())
                 database.child(currentUser.uid).child("bucketlist").child(intent.getStringExtra("month")+"월").child("content").setValue(content.text.toString())
+                database.child(currentUser.uid).child("bucketlist").child(intent.getStringExtra("month")+"월").child("achievement").setValue(false)
             }
 
             var nextIntent = Intent(this, BucketListActivity::class.java)
