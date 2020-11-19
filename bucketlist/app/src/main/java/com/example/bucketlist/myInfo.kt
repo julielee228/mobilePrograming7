@@ -60,7 +60,7 @@ class myInfo : AppCompatActivity() {
 //                    }
                     if(title.equals("null")){
                         Log.d("TAG","NULL")
-                        month_do_title.text = "등록된 리스트가 없어요 ㅠ"
+                        month_do_title.text = "Please make a bucket list."
                         month_do_content.text = ""
                     }
                     else
@@ -81,7 +81,7 @@ class myInfo : AppCompatActivity() {
                 }
             })
         }
-        backBtn.setOnClickListener {
+        back.setOnClickListener {
             finish()
         }
 

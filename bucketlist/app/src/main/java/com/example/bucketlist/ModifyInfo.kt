@@ -14,8 +14,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_modify_info.*
 import kotlinx.android.synthetic.main.activity_my_info.*
-import kotlinx.android.synthetic.main.activity_my_info.backBtn
-import kotlinx.android.synthetic.main.activity_signup.*
 
 class ModifyInfo : AppCompatActivity() {
 
@@ -62,7 +60,7 @@ class ModifyInfo : AppCompatActivity() {
             })
         }
 
-        backBtn.setOnClickListener {
+        back_btn.setOnClickListener {
             finish()
         }
 
