@@ -40,7 +40,7 @@ class myInfo : AppCompatActivity() {
         var month = IntRange(5,6)
         now = now.slice(month)
         //Log.d("aa",now.slice(month))
-        today.text = (now + "월").toString()
+        today.text = (now + "月").toString()
 
 
 
@@ -88,17 +88,17 @@ class myInfo : AppCompatActivity() {
         // 사용자 로그아웃
         logOut.setOnClickListener {
             val builder = AlertDialog.Builder(this,R.style.Theme_AppCompat_Light_Dialog)
-            builder.setTitle("로그아웃 하시겠습니까?")
-            builder.setMessage("확인 버튼 클릭 시 로그아웃 됩니다.")
+            builder.setTitle("Are you sure you want to log out?")
+            builder.setMessage("You will be logged out when you click the OK button.")
 
             //확인 버튼 클릭 시 파이어베이스 함수를 이용하여 로그아웃 후 로그인 페이지로 이동
-            builder.setPositiveButton("확인") { _, _ ->
+            builder.setPositiveButton("Make sure") { _, _ ->
                 FirebaseAuth.getInstance().signOut()
                 val intent2 = Intent(this,signInActivity::class.java)
                 startActivity(intent2)
-                Toast.makeText(this,"로그아웃 되었습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Logout", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("취소") { _, _ ->
+            builder.setNegativeButton("Cancellation") { _, _ ->
                 //No action
             }
             builder.show()

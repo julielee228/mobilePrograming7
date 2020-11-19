@@ -56,13 +56,13 @@ class Signup : AppCompatActivity() {
 
         // 입력하지 않은 회원 정보 확인
         if(pw=="" || pw_confirm=="" || email=="" || phone=="" || name=="") {
-            Toast.makeText(this,"회원정보를 모두 입력해주세요.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Please enter all information..",Toast.LENGTH_SHORT).show()
         }
         // 비밀번호, 비밀번호 확인 문자열 일치 확인
-        else if(pw != pw_confirm) {Toast.makeText(this, "비밀번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show()}
+        else if(pw != pw_confirm) {Toast.makeText(this, "The password is different..",Toast.LENGTH_SHORT).show()}
         // 비밀번호 유효성 확인
         else if(!matcher_vali.find()) {
-            Toast.makeText(this, "비밀번호는 숫자,문자,특수문자를 포함하여 8~15글자로 입력해주세요.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please enter the password in 8 to 15 characters, including numbers, letters, and special characters.",Toast.LENGTH_SHORT).show()
         }
         else{
             auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
@@ -71,7 +71,7 @@ class Signup : AppCompatActivity() {
                     if (currentUser != null) {
                         writeNewUser(email,name,currentUser.uid,phone)
                     }
-                    Toast.makeText(this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Membership registration is complete.",Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, signInActivity::class.java) //회원가입 성공 시 로그인 페이지로 이동
                     startActivity(intent)
                 }

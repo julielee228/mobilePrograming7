@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show()
         }
         signOut.setOnClickListener {
-            Toast.makeText(this, "signout", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
         }
 
         about.setOnClickListener {
@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity() {
 
                     // 화면에 나타낼 다이얼로그 텍스트 및 이미지에 값을 저장한다.
                     myDialog.contentImg.setImageResource(resImg)
-                    myDialog.select_month.text = month + "월의 버킷 리스트"
+                    myDialog.select_month.text = month + "月's bucket list"
                     myDialog.bucket_title.text = title
                     myDialog.month_detail_content.text = content
 

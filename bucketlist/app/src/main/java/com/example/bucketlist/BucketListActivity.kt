@@ -150,10 +150,10 @@ class BucketListActivity : AppCompatActivity() {
         val checkbox: CheckBox = findViewById(resources.getIdentifier("checkBox${month}", "id", packageName))
 
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("버킷을 삭제하시겠습니까?")
-        builder.setMessage("확인 버튼 클릭 시 버킷이 삭제 됩니다.")
+        builder.setTitle("Are you sure you want to delete the bucket?")
+        builder.setMessage("The bucket is deleted when the OK button is clicked.")
 
-        builder.setPositiveButton("확인") { _, _ ->
+        builder.setPositiveButton("Make sure") { _, _ ->
             if (myRef != null) {
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -162,7 +162,7 @@ class BucketListActivity : AppCompatActivity() {
                         bucket.visibility = View.GONE
                         checkbox.isChecked = false
                         checkbox.isClickable = false
-                        Toast.makeText(this@BucketListActivity, "삭제 되었습니다.", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@BucketListActivity, "Deleted", Toast.LENGTH_SHORT)
                             .show()
                     }
 
@@ -172,7 +172,7 @@ class BucketListActivity : AppCompatActivity() {
                 })
             }
         }
-        builder.setNeutralButton("취소", null)
+        builder.setNeutralButton("Cancellation", null)
             builder.show()
     }
 }

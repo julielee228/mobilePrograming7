@@ -37,7 +37,7 @@ class signInActivity : AppCompatActivity() {
         var password = pw_content.text.toString()
         val currentUser = auth.currentUser
         if (email.length == 0 || password.length == 0) {
-            Toast.makeText(this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please enter your email or password.", Toast.LENGTH_SHORT).show()
         }else {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
