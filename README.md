@@ -50,5 +50,5 @@ E-MAIL : cyh6099@kookmin.ac.kr
 
 ```
 
-## 디자인 협업 방법
-Figma 툴을 이용한 디자인 협업 진행
+## 디자인 협업 방법 : Figma Tool
+<img widt="1024px" height="768px" alt="fig" src="https://user-images.githubusercontent.com/28581838/99693489-c31cb480-2ace-11eb-97e5-cb829e4a646d.png">
