@@ -83,7 +83,7 @@
             android:id="@+id/today"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="11월"
+            android:text=""
             android:textSize="20dp"
             android:gravity="center">
         </TextView>

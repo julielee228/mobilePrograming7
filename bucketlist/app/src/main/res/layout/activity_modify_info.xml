@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="13dp"
-            android:text="aa"/>
+            android:text=""/>
 
     </LinearLayout>
 
@@ -82,7 +82,7 @@
             android:id="@+id/beforePhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="11"/>
+            android:text=""/>
 
     </LinearLayout>
 
@@ -100,6 +100,13 @@
         android:layout_gravity="center"
         android:textSize="20dp"
         android:text="변경 후"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(한 가지 정보만 변경하고 싶으면 해당 정보만 입력하세요.)"
+        android:textSize="12dp"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -147,7 +154,7 @@
         android:id="@+id/modify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="9dp"
