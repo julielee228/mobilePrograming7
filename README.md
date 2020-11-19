@@ -19,3 +19,33 @@
 - 회원정보 수정
 ## 데이터베이스 저장 구조
 <img width="565" alt="datastructure" src="https://user-images.githubusercontent.com/28581838/99689220-12acb180-2aca-11eb-9fc3-34b0ff9aac14.png">
+
+## 팀원 소개
+
+```
+
+이희지
+
+STUDENT NUMBER : 20163150
+E-MAIL : heeji228@gmail.com
+
+```
+
+```
+
+임성원
+
+STUDENT NUMBER : 20171686
+E-MAIL : sungwontoto@kookmin.ac.kr
+
+```
+
+
+```
+
+차영호
+
+STUDENT NUMBER : 20171707
+E-MAIL : cyh6099@kookmin.ac.kr
+
+```
