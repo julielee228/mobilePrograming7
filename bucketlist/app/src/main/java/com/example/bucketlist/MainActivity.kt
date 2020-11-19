@@ -83,42 +83,42 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "about us", Toast.LENGTH_SHORT).show()
         }
 
-        // 포도 이미지 눌렀을 때 월에 맞는 버킷 리스트 내용 보여주기
+        // 포도 이미지 눌렀을 때 월에 맞는 버킷 리스트 내용 보여주기 및 월별 이미지 설정
         mon1.setOnClickListener {
-            showDiaLog(it, "1")
+            showDiaLog(it, "1", "jan")
         }
         mon2.setOnClickListener {
-            showDiaLog(it, "2")
+            showDiaLog(it, "2", "feb")
         }
         mon3.setOnClickListener {
-            showDiaLog(it, "3")
+            showDiaLog(it, "3", "mar")
         }
         mon4.setOnClickListener {
-            showDiaLog(it, "4")
+            showDiaLog(it, "4", "apr")
         }
         mon5.setOnClickListener {
-            showDiaLog(it, "5")
+            showDiaLog(it, "5", "may")
         }
         mon6.setOnClickListener {
-            showDiaLog(it, "6")
+            showDiaLog(it, "6", "jun")
         }
         mon7.setOnClickListener {
-            showDiaLog(it, "7")
+            showDiaLog(it, "7", "jul")
         }
         mon8.setOnClickListener {
-            showDiaLog(it, "8")
+            showDiaLog(it, "8", "aug")
         }
         mon9.setOnClickListener {
-            showDiaLog(it, "9")
+            showDiaLog(it, "9", "sep")
         }
         mon10.setOnClickListener {
-            showDiaLog(it, "10")
+            showDiaLog(it, "10", "oct")
         }
         mon11.setOnClickListener {
-            showDiaLog(it, "11")
+            showDiaLog(it, "11", "nov")
         }
         mon12.setOnClickListener {
-            showDiaLog(it, "12")
+            showDiaLog(it, "12", "dec")
         }
 
 
@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showDiaLog(view: View, month: String) {
+    fun showDiaLog(view: View, month: String, img: String) {
         val currentUser = auth.currentUser
         val myRef = currentUser?.uid?.let { database.getReference().child(it) }
         if (myRef != null) {
@@ -149,8 +149,13 @@ class MainActivity : AppCompatActivity() {
                     var title = dataSnapshot.child("bucketlist").child("${month}월").child("title").getValue(String::class.java).toString()
                     var content = dataSnapshot.child("bucketlist").child("${month}월").child("content").getValue(String::class.java).toString()
 
+                    // 포토 버튼에 따른 월별 이미지 파일 이름을 인자로 받아서 변수에 저장
+                    val resName = "@drawable/${img}"
+                    // 동적으로 해당하는 이미지 파일을 불러옴
+                    val resImg: Int = resources.getIdentifier(resName, "drawable", packageName)
 
-                    // 화면에 나타낼 다이얼로그 텍스트에 값을 저장한다.
+                    // 화면에 나타낼 다이얼로그 텍스트 및 이미지에 값을 저장한다.
+                    myDialog.contentImg.setImageResource(resImg)
                     myDialog.select_month.text = month + "월의 버킷 리스트"
                     myDialog.bucket_title.text = title
                     myDialog.month_detail_content.text = content

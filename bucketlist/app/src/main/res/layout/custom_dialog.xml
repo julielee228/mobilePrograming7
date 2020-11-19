@@ -25,12 +25,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
+            android:id="@+id/contentImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/person"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"/>
 
+<!--    버킷 리스트가 몇 월에 해당하는지    -->
         <TextView
             android:id="@+id/select_month"
             android:layout_width="wrap_content"
@@ -40,6 +41,7 @@
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"/>
+<!--     해당 버킷 리스트 제목   -->
         <TextView
             android:id="@+id/bucket_title"
             android:layout_width="wrap_content"
@@ -56,7 +58,7 @@
         android:layout_height="225dp"
         android:background="@drawable/content_border"
         >
-
+        <!--버킷 리스트 상세 내용-->
         <TextView
             android:id="@+id/month_detail_content"
             android:layout_width="match_parent"

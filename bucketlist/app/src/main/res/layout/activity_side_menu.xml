@@ -24,7 +24,7 @@
             android:orientation="vertical"
             tools:context=".MainActivity">
 
-<!--            Jan-->
+<!--            jan-->
             <ImageView
                 android:id="@+id/mon1"
                 android:layout_width="85dp"
