@@ -16,7 +16,6 @@
         </activity>
         <activity android:name=".Signup" />
         <activity android:name=".signInActivity" />
-        <activity android:name=".BucketListMain" />
         <activity
             android:name=".LoadingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
