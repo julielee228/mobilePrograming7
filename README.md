@@ -17,3 +17,5 @@
 - Firebase RealTime Databse를 이용한 유저의 월 별 버킷 리스트 내용 저장 및 삭제
 - 메인 화면에서 월 별 버킷 리스트 상세내용 보여주기
 - 회원정보 수정
+## 데이터베이스 저장 구조
+<img width="565" alt="datastructure" src="https://user-images.githubusercontent.com/28581838/99689220-12acb180-2aca-11eb-9fc3-34b0ff9aac14.png">
