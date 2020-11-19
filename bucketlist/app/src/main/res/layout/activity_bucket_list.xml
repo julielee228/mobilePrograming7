@@ -44,8 +44,8 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
-            android:text="1月"
-            />
+            android:clickable="false"
+            android:text="1月" />
 
         <ImageView
             android:id="@+id/plus1"
@@ -98,6 +98,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="2月" />
 
         <ImageView
@@ -151,6 +152,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="3月" />
 
         <ImageView
@@ -204,6 +206,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="4月" />
 
         <ImageView
@@ -257,6 +260,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="5月" />
 
         <ImageView
@@ -310,6 +314,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="6月" />
 
         <ImageView
@@ -364,6 +369,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="7月" />
 
         <ImageView
@@ -417,6 +423,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="8月" />
 
         <ImageView
@@ -470,6 +477,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="9月" />
 
         <ImageView
@@ -523,6 +531,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="10月" />
 
         <ImageView
@@ -576,6 +585,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="11月" />
 
         <ImageView
@@ -629,6 +639,7 @@
             android:layout_marginBottom="6dp"
             android:checked="false"
             android:gravity="center"
+            android:clickable="false"
             android:text="12月" />
 
         <ImageView

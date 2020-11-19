@@ -45,6 +45,7 @@ class BucketListActivity : AppCompatActivity() {
                             bucketTitle.text = title
                             if (check != "null") {
                                 checkbox.isChecked = check.toBoolean()
+                                checkbox.isClickable = true
                             }
                         }
                     }
@@ -156,11 +157,11 @@ class BucketListActivity : AppCompatActivity() {
             if (myRef != null) {
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        Log.d("hh","hhhhh")
                         myRef.child("bucketlist").child("${month}월").removeValue()
                         plus.visibility = View.VISIBLE
                         bucket.visibility = View.GONE
                         checkbox.isChecked = false
+                        checkbox.isClickable = false
                         Toast.makeText(this@BucketListActivity, "삭제 되었습니다.", Toast.LENGTH_SHORT)
                             .show()
                     }
