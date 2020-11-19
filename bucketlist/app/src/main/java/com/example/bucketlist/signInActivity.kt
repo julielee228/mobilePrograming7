@@ -31,6 +31,10 @@ class signInActivity : AppCompatActivity() {
         super.onStart()
     }
 
+    override fun onBackPressed() {
+
+    }
+
 
     fun signin(){
         var email = email_content.text.toString()
