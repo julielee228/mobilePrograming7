@@ -76,7 +76,7 @@ class ModifyInfo : AppCompatActivity() {
 
             if(name.equals("") && phone.equals(""))
             {
-                Log.d("TAG","EMPTY")
+
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("변경되는 정보가 없습니다.")
                 builder.setMessage("다시 확인해주세.")
@@ -85,7 +85,6 @@ class ModifyInfo : AppCompatActivity() {
             }
             else if(name.equals("") && !phone.equals(""))
             {
-                Log.d("TAG","PHONE EMPTY")
                 val user = NewUser(email,baseName,phone)
                 if (currentUser != null) {
                     writeDatabase.child(currentUser.uid).setValue(user)
@@ -94,10 +93,7 @@ class ModifyInfo : AppCompatActivity() {
             }
             else if(!name.equals("") && phone.equals(""))
             {
-                Log.d("TAG","NAME EMPTY")
-                Log.d("TAG", "email: " + email)
-                Log.d("TAG", "phone: " + phone)
-                Log.d("TAG", "name: " + baseName)
+
                 val user = NewUser(email,name,basePhone)
                 if (currentUser != null) {
                     writeDatabase.child(currentUser.uid).setValue(user)
@@ -108,7 +104,6 @@ class ModifyInfo : AppCompatActivity() {
             else
             {
 
-                Log.d("TAG", "aa"+name)
                 val user = NewUser(email,name,phone)
                 if (currentUser != null) {
                     writeDatabase.child(currentUser.uid).setValue(user)

@@ -39,7 +39,6 @@ class myInfo : AppCompatActivity() {
         var now = LocalDate.now().toString()
         var month = IntRange(5,6)
         now = now.slice(month)
-        //Log.d("aa",now.slice(month))
         today.text = (now + "月").toString()
 
 
@@ -55,11 +54,9 @@ class myInfo : AppCompatActivity() {
                     val email = dataSnapshot.child("email").getValue(String::class.java).toString()
                     val phone = dataSnapshot.child("phone").getValue(String::class.java).toString()
 
-//                    if (title == null){
-//                        Log.d("TAG","NULL")
-//                    }
+
                     if(title.equals("null")){
-                        Log.d("TAG","NULL")
+
                         month_do_title.text = "Please make a bucket list."
                         month_do_content.text = ""
                     }
