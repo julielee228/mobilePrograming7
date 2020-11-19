@@ -37,19 +37,23 @@
         android:layout_marginRight="58dp"
         android:hint="Title"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:background="@drawable/content_border"/>
 
     <EditText
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:layout_marginLeft="58dp"
         android:layout_marginRight="58dp"
         android:layout_weight="5"
         android:hint="Write down what you want to achieve."
+        android:gravity="center"
         android:shadowColor="#000000"
         android:text=""
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:background="@drawable/content_border"/>
 
     <Button
         android:id="@+id/Save"
