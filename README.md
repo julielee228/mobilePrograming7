@@ -52,3 +52,10 @@ E-MAIL : cyh6099@kookmin.ac.kr
 
 ## 디자인 협업 방법 : Figma Tool
 <img widt="1024px" height="768px" alt="fig" src="https://user-images.githubusercontent.com/28581838/99693489-c31cb480-2ace-11eb-97e5-cb829e4a646d.png">
+
+## 어플 사용 방법
+- 회원정보 입력을 통한 회원가입 및 로그인
+- 버킷 리스트 추가 페이지에서 월별 버킷 리스트를 등록
+- 월별 버킷리스트 달성 시 체크박스를 통한 달성 여부 체크
+- 월별 버킷리스트 달성 시 해당 월에 해당하는 포도 색을 하나씩 채워 나감
+- 월별 포도 버튼 클릭 시 본인이 등록한 버킷 리스트 세부 내용 화면에 출력
