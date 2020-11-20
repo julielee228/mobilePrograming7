@@ -59,8 +59,11 @@ E-MAIL : cyh6099@kookmin.ac.kr
 - 월별 버킷리스트 달성 시 체크박스를 통한 달성 여부 체크
 - 월별 버킷리스트 달성 시 해당 월에 해당하는 포도 색을 하나씩 채워 나감
 - 월별 포도 버튼 클릭 시 본인이 등록한 버킷 리스트 세부 내용 화면에 출력
+
 <hr>
+
 ## 기능 구현 내용
+
 ### 이희지
 ### BucketListActivity : DB 데이터 읽기
 - DB에서 버킷 리스트 데이터 읽기
@@ -98,7 +101,7 @@ E-MAIL : cyh6099@kookmin.ac.kr
   - 엑스 아이콘을 누르면 BucketListActivity로 화면 전환
   - intent를 통해 넘어온 데이터로 몇월인지 파악한 뒤 setText() 함수를 통해 월을 변경 
 
-
+<hr>
 
 ### 임성원
 ### LoadingActivity
