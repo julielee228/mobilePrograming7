@@ -75,6 +75,10 @@ class Signup : AppCompatActivity() {
                     val intent = Intent(this, signInActivity::class.java) //회원가입 성공 시 로그인 페이지로 이동
                     startActivity(intent)
                 }
+                else
+                {
+                    Toast.makeText(this,"Please check your email or password",Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
