@@ -163,6 +163,7 @@
         android:layout_marginRight="9dp"
         android:layout_marginBottom="32dp"
         android:text="수정"
+        android:background="@drawable/content_border"
         />
 
 
