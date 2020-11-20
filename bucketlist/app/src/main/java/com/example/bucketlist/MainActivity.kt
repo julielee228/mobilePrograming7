@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        // 사용자의 월별 버킷 리스트 달성 여부에 따른 포도 색깔 설정
+        // 사용자의 월별 버킷 리스트 달성 여부에 따른 포도 색깔 설정 (20171686 임성원)
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                     // Failed to read value
                     Log.w("TAG", "Failed to read value.", error.toException())
                 }
+
             })
         }
 
@@ -156,7 +157,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        //하단 메뉴 바 아이콘의 id에 따라서 아이콘 클릭 시 액티비티 전환
+        //하단 메뉴 바 아이콘의 id에 따라서 아이콘 클릭 시 액티비티 전환 (20171686 임성원)
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.icList -> {
@@ -171,9 +172,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
     }
 
-    // 상세 내용을 보여주는 다이얼로그 함수
+
+    // 상세 내용을 보여주는 다이얼로그 함수 (20171686 임성원)
     fun showDiaLog(view: View, month: String, img: String) {
         // 현재 유저 정보를 불러옴
         val currentUser = auth.currentUser
@@ -200,7 +203,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    // Failed to read value
                     Log.w("TAG", "Failed to read value.", error.toException())
                 }
             })
