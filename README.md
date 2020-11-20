@@ -60,8 +60,47 @@ E-MAIL : cyh6099@kookmin.ac.kr
 - 월별 버킷리스트 달성 시 해당 월에 해당하는 포도 색을 하나씩 채워 나감
 - 월별 포도 버튼 클릭 시 본인이 등록한 버킷 리스트 세부 내용 화면에 출력
 <hr>
+## 기능 구현 내용
+### 이희지
+### BucketListActivity : DB 데이터 읽기
+- DB에서 버킷 리스트 데이터 읽기
+ - 월 별로 버킷리스트가 작성되어있는지 확인
+ - 리스너를 사용해서 로그인 정보가 있을 경우 DB에서 지정된 위치에 있는 데이터를 포함하는 DataSnapshot을 수신
+ - Snapshot에 대해 getValue()함수를 호출해 버킷 리스트의 유무를 확인
+ - null 값이 반환될 경우 아무런 정보를 가져오지 않음
+ - 버킷 리스트가 작성되어 있을 경우 버킷 제목, 달성 여부를 파악해서 읽은 데이터 값을 화면에 출력 
+ - 문자열을 통해 Resource를 가져올 수 있도록 Resources.getIdentifier를 사용하여 문자열 리소스를 동적으로 로드
+ 
+### BucketListActivity : DB 데이터 삭제
+- 월 별로 버킷 리스트를 삭제할 수 있도록 데이터 삭제 
+ - 다이어로그
+  - AlertDialog.Builder를 통해 알림메시지 팝업창 구현을 위한 인스턴스 생성
+  - setTitle, setMessage를 통해 알림 내용 구성
+  - setPositiveButton을 통해 버튼이 클릭 되었을 때 알고리즘 구현
+ - 데이터 삭제
+  - 선택된 데이터를 파악한 뒤 removeValue() 함수를 통해 실시간으로 데이터를 삭제 
+ - 토스트 메시지
+  - 데이터 삭제가 확인되면서 Deleted라는 문구가 적힌 토스트 메시지를 띠워줌 
 
-## 임성원 기능 구현 내용
+
+### BucketListActivity : 달성 여부 체크 버튼 활성화 기능
+- 회원 가입을 했을 경우 모든 체크박스는 비활성화로 초기화 clickable='false'
+- DB에 버킷리스트가 작성된 월을 파악한 뒤 체크박스를 활성화로 변경 clickable='true'
+- checkbox에 setOnCheckedChangeListener 리스너를 연결
+- checkbox에 달성 체크를 하면 DB에 달성 여부를 true로 데이터 쓰기 
+
+
+### BucketPostActivity : 버킷 리스트 생성 및 취소
+- DB에 버킷 리스트 데이터 쓰기
+  - DB에서 데이터를 쓰기위해 DatabaseReference의 인스턴스 생성
+  - 버킷리스트의 제목과 내용을 입력하고 저장 버튼을 클릭하면 setValue() 함수를 통해 지정된 참조에 실시간으로 데이터를 저장
+  - firebase의 JSON 트리 데이터 구조화 방법을 활용 
+  - 엑스 아이콘을 누르면 BucketListActivity로 화면 전환
+  - intent를 통해 넘어온 데이터로 몇월인지 파악한 뒤 setText() 함수를 통해 월을 변경 
+
+
+
+### 임성원
 ### LoadingActivity
 - Handler().postDelay() 함수를 이용하여 시간 지연 후 액티비티 전환
 - activity_loading.xml 화면을 2초동안 보여주고 로그인 액티비티로 전환하는 Splash 기능 구현
@@ -113,7 +152,7 @@ E-MAIL : cyh6099@kookmin.ac.kr
 
 <hr>
 
-## 차영호 기능 구현 내용
+### 차영호
 
 ### myInfo
 - 내 정보를 출력하는 액티비티
@@ -152,3 +191,5 @@ E-MAIL : cyh6099@kookmin.ac.kr
 ### side menu
 - MainActivity 좌측 상단에 햄버거 버튼을 통해 slide형식의 menu를 만들었다.
 - DrawerLayout을 통해 구현하였으며, ActionBarDrawerToggle을 활용하여 열고 닫을 수 있다.
+
+
