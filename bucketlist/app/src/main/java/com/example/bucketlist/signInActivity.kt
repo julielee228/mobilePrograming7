@@ -2,7 +2,6 @@ package com.example.bucketlist
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +30,7 @@ class signInActivity : AppCompatActivity() {
         super.onStart()
     }
 
+    // 로그인 액티비티에서 뒤로가기 버튼 클릭 시 내정보 페이지로 넘어가는 오류 막기 위함
     override fun onBackPressed() {
 
     }
@@ -46,26 +46,16 @@ class signInActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("aa", "signInWithEmail:success")
                         val user = auth.currentUser
                         val intent = Intent(this,MainActivity::class.java)
                         startActivity(intent)
-                        //updateUI(user)
+
                     }
                     else {
-                        // If sign in fails, display a message to the user.
-                        //Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
-                        //updateUI(null)
-                        // ...
+                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+
                     }
-
-                    // ...
                 }
-
         }
-
     }
 }

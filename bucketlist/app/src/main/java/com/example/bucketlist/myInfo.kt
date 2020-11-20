@@ -29,7 +29,7 @@ class myInfo : AppCompatActivity() {
             startActivity(intent2)
         }
 
-        // ㄷㅔ이터 불러오기 45라인 username부분이 키 값
+        // 데이터 불러오기 45라인 username부분이 키 값
         val database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
 
@@ -39,15 +39,14 @@ class myInfo : AppCompatActivity() {
         var now = LocalDate.now().toString()
         var month = IntRange(5,6)
         now = now.slice(month)
-        today.text = (now + "月").toString()
+        today.text = (now + "月")
 
 
 
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    // This method is called once with the initial value and again
-                    // whenever data at this location is updated.
+
                     var title = dataSnapshot.child("bucketlist").child((now + "월").toString()).child("title").getValue(String::class.java).toString()
                     var content = dataSnapshot.child("bucketlist").child((now + "월").toString()).child("content").getValue(String::class.java).toString()
                     val name = dataSnapshot.child("username").getValue(String::class.java).toString()

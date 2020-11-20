@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_side_menu.*
 import kotlinx.android.synthetic.main.custom_dialog.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var myDialog: Dialog
+    lateinit var myDialog: Dialog // 다이얼로그 객체 생성 준비
     private var mDrawerToggle: ActionBarDrawerToggle? = null
 
     val database = FirebaseDatabase.getInstance()
@@ -45,8 +45,12 @@ class MainActivity : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for(i in 1..12) { // 1월 ~ 12월
                         val title = dataSnapshot.child("bucketlist").child("${i}월").child("title").value.toString() // 버킷 리스트 제목 추출
-                        lists.add(title)
+                        lists.add(title) // arrayList 배열에 1~12월에 해당하는 버킷 리스트 제목을 추가
+
+                        // 페이지 로드 시 월별 버킷 리스트가 달성되어 있는지 확인 후 달성 여부에 따라서 메인 액티비티 포도 이미지 지정
                         val isComplete = dataSnapshot.child("bucketlist").child("${i}월").child("achievement").value.toString()
+
+                        // 동적으로 id 값을 불러와서 해당 id의 ImageView 에 포도 이미지 설정
                         val grape: ImageView= findViewById(resources.getIdentifier("mon${i}", "id", packageName))
                         if(isComplete == "true") {
                             grape.setImageResource(R.drawable.circle)
@@ -55,6 +59,10 @@ class MainActivity : AppCompatActivity() {
                             grape.setImageResource(R.drawable.non_complete)
                         }
                     }
+
+                    // 포도 버튼 클릭 시 해당 월의 버킷 리스트 상세 내용 출력
+                    // 각 월별로 버튼 클릭 시 리스트에 저장되어 있는 버킷 리스트 제목을 참조
+                    // 리스트 제목이 null 일 경우에는 그 달에 버킷 리스트가 없다는 뜻이므로 상세 내용 다이얼로그를 출력하지 않음
                     if(!lists[0].equals("null")) {
                         mon1.setOnClickListener {
                             showDiaLog(it, "1", "jan")
@@ -127,7 +135,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        myDialog = Dialog(this)
+        myDialog = Dialog(this) // 다이얼로그 객체 생성
 
 
         mDrawerToggle =
@@ -145,8 +153,6 @@ class MainActivity : AppCompatActivity() {
         about.setOnClickListener {
             Toast.makeText(this, "about us", Toast.LENGTH_SHORT).show()
         }
-
-        // 포도 이미지 눌렀을 때 월에 맞는 버킷 리스트 내용 보여주기 및 월별 이미지 설정
 
 
 
@@ -167,7 +173,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // 상세 내용을 보여주는 다이얼로그 함수
     fun showDiaLog(view: View, month: String, img: String) {
+        // 현재 유저 정보를 불러옴
         val currentUser = auth.currentUser
         val myRef = currentUser?.uid?.let { database.getReference().child(it) }
         if (myRef != null) {
@@ -188,8 +196,6 @@ class MainActivity : AppCompatActivity() {
                     myDialog.select_month.text = month + "月's bucket list"
                     myDialog.bucket_title.text = title
                     myDialog.month_detail_content.text = content
-
-
 
                 }
 

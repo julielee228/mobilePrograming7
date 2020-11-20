@@ -1,19 +1,14 @@
 package com.example.bucketlist
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
-import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_modify_info.*
-import kotlinx.android.synthetic.main.activity_my_info.*
 
 class ModifyInfo : AppCompatActivity() {
 
@@ -74,7 +69,7 @@ class ModifyInfo : AppCompatActivity() {
 
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("변경되는 정보가 없습니다.")
-                builder.setMessage("다시 확인해주세.")
+                builder.setMessage("다시 확인해주세요.")
                 builder.setPositiveButton("check",null)
                 builder.show()
             }
