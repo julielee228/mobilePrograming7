@@ -69,11 +69,6 @@ class ModifyInfo : AppCompatActivity() {
             var name = editAfterName.text.toString()
             var phone = editAfterPhone.text.toString()
 
-
-
-
-
-
             if(name.equals("") && phone.equals(""))
             {
 
@@ -85,18 +80,22 @@ class ModifyInfo : AppCompatActivity() {
             }
             else if(name.equals("") && !phone.equals(""))
             {
-                val user = NewUser(email,baseName,phone)
+                val user = hashMapOf<String, Any>(
+                    "/${currentUser?.uid}/phone" to phone
+                )
                 if (currentUser != null) {
-                    writeDatabase.child(currentUser.uid).setValue(user)
+                    writeDatabase.updateChildren(user)
                 }
                 finish()
             }
             else if(!name.equals("") && phone.equals(""))
             {
 
-                val user = NewUser(email,name,basePhone)
+                val user = hashMapOf<String, Any>(
+                    "/${currentUser?.uid}/username" to name
+                )
                 if (currentUser != null) {
-                    writeDatabase.child(currentUser.uid).setValue(user)
+                    writeDatabase.updateChildren(user)
                 }
                 finish()
             }
@@ -104,9 +103,12 @@ class ModifyInfo : AppCompatActivity() {
             else
             {
 
-                val user = NewUser(email,name,phone)
+                val user = hashMapOf<String, Any>(
+                    "/${currentUser?.uid}/username" to name,
+                    "/${currentUser?.uid}/phone" to phone
+                )
                 if (currentUser != null) {
-                    writeDatabase.child(currentUser.uid).setValue(user)
+                    writeDatabase.updateChildren(user)
                 }
                 finish()
             }
@@ -117,8 +119,3 @@ class ModifyInfo : AppCompatActivity() {
 
 
 }
-data class NewUser (
-    var email : String? = "",
-    var username : String? = "",
-    var phone : String? = ""
-)
