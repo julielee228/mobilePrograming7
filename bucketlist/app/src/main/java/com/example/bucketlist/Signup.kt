@@ -40,7 +40,7 @@ class Signup : AppCompatActivity() {
     }
     fun signup(){
 
-
+        // editText에 입력된 문자를 가져와 변수에 저장
         var email = edit_email.text.toString()
         var phone = edit_phone.text.toString()
         var pw = edit_pw.text.toString()
@@ -65,9 +65,12 @@ class Signup : AppCompatActivity() {
             Toast.makeText(this, "Please enter the password in 8 to 15 characters, including numbers, letters, and special characters.",Toast.LENGTH_SHORT).show()
         }
         else{
+
+            // 회원가입 기능
             auth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(this){task ->
                 if(task.isSuccessful){
                     val currentUser = auth.currentUser
+                    // 입력받은 회원 정보를 DB에 저장하는 코드
                     if (currentUser != null) {
                         writeNewUser(email,name,currentUser.uid,phone)
                     }
@@ -83,6 +86,8 @@ class Signup : AppCompatActivity() {
         }
 
     }
+
+    // DB에 회원정보를 저장하는 함수
     private fun writeNewUser(email: String?, name : String,uid : String,phone : String){
         val user = User(email,name,phone)
         database.child(uid).setValue(user)

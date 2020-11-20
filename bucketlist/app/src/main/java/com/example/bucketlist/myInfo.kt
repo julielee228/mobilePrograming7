@@ -36,35 +36,36 @@ class myInfo : AppCompatActivity() {
         val currentUser = auth.currentUser
         val myRef = currentUser?.uid?.let { database.getReference().child(it) }
 
+
+        // 현재의 연도,월,일을 가져와 월 부분만 잘라내는 코드
         var now = LocalDate.now().toString()
         var month = IntRange(5,6)
         now = now.slice(month)
         today.text = (now + "月")
 
-
-
         if (myRef != null) {
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-
                     var title = dataSnapshot.child("bucketlist").child((now + "월").toString()).child("title").getValue(String::class.java).toString()
                     var content = dataSnapshot.child("bucketlist").child((now + "월").toString()).child("content").getValue(String::class.java).toString()
                     val name = dataSnapshot.child("username").getValue(String::class.java).toString()
                     val email = dataSnapshot.child("email").getValue(String::class.java).toString()
                     val phone = dataSnapshot.child("phone").getValue(String::class.java).toString()
 
-
+                    // 현재 달의 버킷리스트 내용을 불러와 비어있는지 판단해 상황에 맞는 메시지 출력
                     if(title.equals("null")){
 
                         month_do_title.text = "Please make a bucket list."
                         month_do_content.text = ""
                     }
                     else
+                        //등록이 되어 있다면 해당 리스트 출력
                     {
                         month_do_title.text = title
                         month_do_content.text = content
                     }
 
+                    // 회원 정보 출력
                     myName.text = name
                     myEmail.text = email
                     myPhone.text = phone
