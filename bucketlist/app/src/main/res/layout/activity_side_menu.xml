@@ -10,11 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?android:attr/actionBarSize" />
+            android:minHeight="?android:attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/logo2" />
+        </androidx.appcompat.widget.Toolbar>
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -274,16 +286,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom">
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/bottom_navigation"
+            android:layout_marginTop="172dp"
             android:background="#fff"
+            app:itemIconSize="35dp"
             app:itemIconTint="#000"
             app:itemTextColor="#000"
-            android:layout_marginTop="172dp"
-            app:itemIconSize="35dp">
+            app:menu="@menu/bottom_navigation">
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
