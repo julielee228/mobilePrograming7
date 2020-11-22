@@ -83,7 +83,7 @@ E-MAIL : cyh6099@kookmin.ac.kr
  - 데이터 삭제
   - 선택된 데이터를 파악한 뒤 removeValue() 함수를 통해 실시간으로 데이터를 삭제 
  - 토스트 메시지
-  - 데이터 삭제가 확인되면서 Deleted라는 문구가 적힌 토스트 메시지를 띠워줌 
+  - 데이터 삭제가 확인되면서 Deleted라는 문구가 적힌 토스트 메시지를 띄워줌 
 
 
 ### BucketListActivity : 달성 여부 체크 버튼 활성화 기능
