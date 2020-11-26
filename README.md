@@ -67,23 +67,23 @@ E-MAIL : cyh6099@kookmin.ac.kr
 ### 이희지
 ### BucketListActivity : DB 데이터 읽기
 - DB에서 버킷 리스트 데이터 읽기
- - 월 별로 버킷리스트가 작성되어있는지 확인
- - 리스너를 사용해서 로그인 정보가 있을 경우 DB에서 지정된 위치에 있는 데이터를 포함하는 DataSnapshot을 수신
- - Snapshot에 대해 getValue()함수를 호출해 버킷 리스트의 유무를 확인
- - null 값이 반환될 경우 아무런 정보를 가져오지 않음
- - 버킷 리스트가 작성되어 있을 경우 버킷 제목, 달성 여부를 파악해서 읽은 데이터 값을 화면에 출력 
- - 문자열을 통해 Resource를 가져올 수 있도록 Resources.getIdentifier를 사용하여 문자열 리소스를 동적으로 로드
+  - 월 별로 버킷리스트가 작성되어있는지 확인
+  - 리스너를 사용해서 로그인 정보가 있을 경우 DB에서 지정된 위치에 있는 데이터를 포함하는 DataSnapshot을 수신
+  - Snapshot에 대해 getValue()함수를 호출해 버킷 리스트의 유무를 확인
+  - null 값이 반환될 경우 아무런 정보를 가져오지 않음
+  - 버킷 리스트가 작성되어 있을 경우 버킷 제목, 달성 여부를 파악해서 읽은 데이터 값을 화면에 출력 
+  - 문자열을 통해 Resource를 가져올 수 있도록 Resources.getIdentifier를 사용하여 문자열 리소스를 동적으로 로드
  
 ### BucketListActivity : DB 데이터 삭제
 - 월 별로 버킷 리스트를 삭제할 수 있도록 데이터 삭제 
- - 다이어로그
-  - AlertDialog.Builder를 통해 알림메시지 팝업창 구현을 위한 인스턴스 생성
-  - setTitle, setMessage를 통해 알림 내용 구성
-  - setPositiveButton을 통해 버튼이 클릭 되었을 때 알고리즘 구현
- - 데이터 삭제
-  - 선택된 데이터를 파악한 뒤 removeValue() 함수를 통해 실시간으로 데이터를 삭제 
- - 토스트 메시지
-  - 데이터 삭제가 확인되면서 Deleted라는 문구가 적힌 토스트 메시지를 띄워줌 
+  - 다이어로그
+    - AlertDialog.Builder를 통해 알림메시지 팝업창 구현을 위한 인스턴스 생성
+    - setTitle, setMessage를 통해 알림 내용 구성
+    - setPositiveButton을 통해 버튼이 클릭 되었을 때 알고리즘 구현
+  - 데이터 삭제
+    - 선택된 데이터를 파악한 뒤 removeValue() 함수를 통해 실시간으로 데이터를 삭제 
+  - 토스트 메시지
+    - 데이터 삭제가 확인되면서 Deleted라는 문구가 적힌 토스트 메시지를 띄워줌 
 
 
 ### BucketListActivity : 달성 여부 체크 버튼 활성화 기능
